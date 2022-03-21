@@ -4,13 +4,17 @@ import axios from "axios";
 
 function App() {
   const [searchString, setSearchString] = useState("");
+  const [recipes, setRecipes] = useState([]);
+
   const APP_ID = "cbfb9ddd";
   const APP_KEY = "eaffffd5345dc91211b5f43a73e5975f";
   const url = `https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
   const getData = async () => {
     const result = await axios.get(url);
+    setRecipes(result.data.hits);
     console.log(result);
+    console.log(recipes);
     setSearchString(" ");
   };
   const onChange = (e) => {
@@ -36,6 +40,13 @@ function App() {
         />
         <input type="submit" value="Search" />
       </form>
+      <div>
+        <h3>Recipes</h3>
+        <ul>
+          {recipes != [] &&
+            recipes.map((recipe) => <li>{recipe.recipe.label}</li>)}
+        </ul>
+      </div>
     </div>
   );
 }
