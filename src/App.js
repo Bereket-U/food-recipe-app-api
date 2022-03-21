@@ -1,6 +1,8 @@
 import "./App.css";
 import React, { useState } from "react";
 import axios from "axios";
+import { v4 as uuid } from "uuid";
+import Recipe from "./components/Recipe/Recipe";
 
 function App() {
   const [searchString, setSearchString] = useState("");
@@ -14,7 +16,6 @@ function App() {
     const result = await axios.get(url);
     setRecipes(result.data.hits);
     console.log(result);
-    console.log(recipes);
     setSearchString(" ");
   };
   const onChange = (e) => {
@@ -42,10 +43,10 @@ function App() {
       </form>
       <div>
         <h3>Recipes</h3>
-        <ul>
-          {recipes != [] &&
-            recipes.map((recipe) => <li>{recipe.recipe.label}</li>)}
-        </ul>
+        {/* {recipes != [] &&
+            recipes.map((recipe) => <li>{recipe.recipe.label}</li>)} */}
+        {recipes != [] &&
+          recipes.map((recipe) => <Recipe key={uuid()} recipe={recipe} />)}
       </div>
     </div>
   );
