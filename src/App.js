@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import Recipe from "./components/Recipe/Recipe";
+import Alert from "./components/Alert/Alert";
 
 function App() {
   const [searchString, setSearchString] = useState("");
