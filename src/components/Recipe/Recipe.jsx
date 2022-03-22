@@ -3,8 +3,11 @@ import Ingredients from "../Ingredients/Ingredients";
 
 const Recipe = ({ recipe }) => {
   const { label, image, url, ingredients } = recipe.recipe;
-  const [display, setDisplay] = useState(false);
-  console.log(display);
+  const [expanded, setExpanded] = useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   return (
     <div>
@@ -13,8 +16,8 @@ const Recipe = ({ recipe }) => {
       <a href={url} target="_blank" rel="noopener noreferrer">
         Read More
       </a>
-      <button onClick={() => setDisplay(!display)}>Ingredients</button>
-      {display && <Ingredients ingredients={ingredients} />}
+      <button onClick={handleExpandClick}>Ingredients</button>
+      {expanded && <Ingredients ingredients={ingredients} />}
     </div>
   );
 };
