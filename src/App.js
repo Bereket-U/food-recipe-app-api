@@ -8,6 +8,7 @@ import Alert from "./components/Alert/Alert";
 function App() {
   const [searchString, setSearchString] = useState("");
   const [recipes, setRecipes] = useState([]);
+  const [alert, setAlert] = useState("");
 
   const APP_ID = "cbfb9ddd";
   const APP_KEY = "eaffffd5345dc91211b5f43a73e5975f";
@@ -15,9 +16,14 @@ function App() {
 
   const getData = async () => {
     const result = await axios.get(url);
-    setRecipes(result.data.hits);
-    console.log(result);
-    setSearchString(" ");
+    if (searchString !== "") {
+      setRecipes(result.data.hits);
+      console.log(result);
+      setSearchString("");
+      setAlert("");
+    } else {
+      setAlert("Please fill the form");
+    }
   };
   const onChange = (e) => {
     setSearchString(e.target.value);
@@ -31,6 +37,7 @@ function App() {
   return (
     <div className="App">
       <h1>Food Recipe App</h1>
+      <Alert alert={alert} />
       <form onSubmit={searchRecipe}>
         <input
           type="text"
