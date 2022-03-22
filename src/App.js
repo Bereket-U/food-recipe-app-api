@@ -15,8 +15,11 @@ function App() {
   const url = `https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
   const getData = async () => {
-    const result = await axios.get(url);
     if (searchString !== "") {
+      const result = await axios.get(url);
+      if (!result.data.more) {
+        return setAlert(`No recipe found for "${searchString}"`);
+      }
       setRecipes(result.data.hits);
       console.log(result);
       setSearchString("");
