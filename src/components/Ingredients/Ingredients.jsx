@@ -8,7 +8,6 @@ const Ingredients = ({ ingredients }) => {
         return (
           <ul key={uuid()}>
             <li>{ingredient.text}</li>
-            <li>{ingredient.weight}</li>
           </ul>
         );
       })}
