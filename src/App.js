@@ -4,6 +4,10 @@ import axios from "axios";
 import { v4 as uuid } from "uuid";
 import Recipe from "./components/Recipe/Recipe";
 import Alert from "./components/Alert/Alert";
+import { experimentalStyled as styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
 
 function App() {
   const [searchString, setSearchString] = useState("");
@@ -13,6 +17,14 @@ function App() {
   const APP_ID = "cbfb9ddd";
   const APP_KEY = "eaffffd5345dc91211b5f43a73e5975f";
   const url = `https://api.edamam.com/search?q=${searchString}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  }));
 
   const getData = async () => {
     if (searchString !== "") {
@@ -56,8 +68,21 @@ function App() {
         <h3>Recipes</h3>
         {/* {recipes != [] &&
             recipes.map((recipe) => <li>{recipe.recipe.label}</li>)} */}
-        {recipes != [] &&
-          recipes.map((recipe) => <Recipe key={uuid()} recipe={recipe} />)}
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid
+            container
+            spacing={{ xs: 3, md: 3 }}
+            direction="row"
+            justifyContent="center"
+          >
+            {recipes != [] &&
+              recipes.map((recipe) => (
+                <Grid item key={uuid()}>
+                  <Recipe key={uuid()} recipe={recipe} />
+                </Grid>
+              ))}
+          </Grid>
+        </Box>
       </div>
     </div>
   );
