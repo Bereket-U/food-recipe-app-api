@@ -38,7 +38,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="">
       <h1>Food Recipe App</h1>
       <Alert alert={alert} />
       <form onSubmit={searchRecipe}>
