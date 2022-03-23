@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 const Recipe = ({ recipe }) => {
-  const { label, image, url, ingredients } = recipe.recipe;
+  const { label, image, url, ingredients, dishType } = recipe.recipe;
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -16,17 +16,14 @@ const Recipe = ({ recipe }) => {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card variant="outlined" sx={{ maxWidth: 300, minWidth: 300 }}>
       <CardMedia component="img" alt={label} height="140" image={image} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {label}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {ingredients[0].text}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {ingredients[2].text}
+          {dishType[0]}
         </Typography>
       </CardContent>
 
