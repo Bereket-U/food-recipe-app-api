@@ -7,7 +7,7 @@ const Ingredients = ({ ingredients }) => {
       {ingredients.map((ingredient) => {
         return (
           <ul key={uuid()}>
-            <li>{ingredient.text}</li>
+            <li>{ingredient.text}</li>git status
           </ul>
         );
       })}
