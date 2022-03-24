@@ -7,7 +7,7 @@ import Recipe from "../Recipe/Recipe";
 const Recipes = ({ recipes }) => {
   return (
     <div>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box>
         <Grid
           container
           spacing={{ xs: 3, md: 3 }}
