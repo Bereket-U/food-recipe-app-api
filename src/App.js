@@ -77,9 +77,11 @@ function App() {
           >
             {recipes != [] &&
               recipes.map((recipe) => (
-                <Grid item key={uuid()}>
-                  <Recipe key={uuid()} recipe={recipe} />
-                </Grid>
+                <Item>
+                  <Grid item key={uuid()}>
+                    <Recipe key={uuid()} recipe={recipe} />
+                  </Grid>
+                </Item>
               ))}
           </Grid>
         </Box>
