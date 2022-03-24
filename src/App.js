@@ -4,6 +4,7 @@ import axios from "axios";
 import Alert from "./components/Alert/Alert";
 import Search from "./components/Search/Search";
 import Recipes from "./components/Recipes/Recipes";
+import Paper from "@mui/material/Paper";
 
 function App() {
   const [searchString, setSearchString] = useState("");
@@ -38,7 +39,7 @@ function App() {
   };
 
   return (
-    <div className="">
+    <Paper>
       <Search
         alert={alert}
         searchRecipeS={searchRecipe}
@@ -47,7 +48,7 @@ function App() {
       />
       <Alert alert={alert} />
       <Recipes recipes={recipes} />
-    </div>
+    </Paper>
   );
 }
 export default App;
