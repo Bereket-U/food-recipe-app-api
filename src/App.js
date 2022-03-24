@@ -1,11 +1,9 @@
 import "./App.css";
 import React, { useState } from "react";
 import axios from "axios";
-import { v4 as uuid } from "uuid";
-import Recipe from "./components/Recipe/Recipe";
 import Alert from "./components/Alert/Alert";
-import Box from "@mui/material/Box";
-import { Grid } from "@mui/material";
+import Search from "./components/Search/Search";
+import Recipes from "./components/Recipes/Recipes";
 
 function App() {
   const [searchString, setSearchString] = useState("");
@@ -41,37 +39,14 @@ function App() {
 
   return (
     <div className="">
-      <h1>Food Recipe App</h1>
+      <Search
+        alert={alert}
+        searchRecipeS={searchRecipe}
+        onChangeS={onChange}
+        searchStringS={searchString}
+      />
       <Alert alert={alert} />
-      <form onSubmit={searchRecipe}>
-        <input
-          type="text"
-          name="search"
-          placeholder="Search Recipe"
-          autoComplete="off"
-          onChange={onChange}
-          value={searchString}
-        />
-        <input type="submit" value="Search" />
-      </form>
-      <div>
-        <h3>Recipes</h3>
-        <Box sx={{ flexGrow: 1 }}>
-          <Grid
-            container
-            spacing={{ xs: 3, md: 3 }}
-            direction="row"
-            justifyContent="center"
-          >
-            {recipes != [] &&
-              recipes.map((recipe) => (
-                <Grid item key={uuid()}>
-                  <Recipe key={uuid()} recipe={recipe} />
-                </Grid>
-              ))}
-          </Grid>
-        </Box>
-      </div>
+      <Recipes recipes={recipes} />
     </div>
   );
 }
