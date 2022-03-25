@@ -3,10 +3,16 @@ import { v4 as uuid } from "uuid";
 import Box from "@mui/material/Box";
 import { Grid } from "@mui/material";
 import Recipe from "../Recipe/Recipe";
+import { Container } from "@mui/material";
 
 const Recipes = ({ recipes }) => {
   return (
-    <Box>
+    <Container
+      lg={{
+        padding: "20",
+        backgroundColor: "#ff01",
+      }}
+    >
       <Grid container spacing={{ xs: 3 }} justifyContent="center">
         {recipes != [] &&
           recipes.map((recipe) => (
@@ -15,7 +21,7 @@ const Recipes = ({ recipes }) => {
             </Grid>
           ))}
       </Grid>
-    </Box>
+    </Container>
   );
 };
 
