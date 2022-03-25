@@ -46,7 +46,7 @@ function App() {
   return (
     <Paper
       sx={{
-        backgroundColor: "#0001",
+        backgroundColor: "#E9E5CF",
         minHeight: "100vh",
       }}
     >
