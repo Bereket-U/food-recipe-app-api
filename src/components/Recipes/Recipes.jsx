@@ -6,23 +6,16 @@ import Recipe from "../Recipe/Recipe";
 
 const Recipes = ({ recipes }) => {
   return (
-    <div>
-      <Box>
-        <Grid
-          container
-          spacing={{ xs: 3, md: 3 }}
-          direction="row"
-          justifyContent="center"
-        >
-          {recipes != [] &&
-            recipes.map((recipe) => (
-              <Grid item key={uuid()}>
-                <Recipe key={uuid()} recipe={recipe} />
-              </Grid>
-            ))}
-        </Grid>
-      </Box>
-    </div>
+    <Box>
+      <Grid container spacing={{ xs: 3 }} justifyContent="center">
+        {recipes != [] &&
+          recipes.map((recipe) => (
+            <Grid item key={uuid()}>
+              <Recipe key={uuid()} recipe={recipe} />
+            </Grid>
+          ))}
+      </Grid>
+    </Box>
   );
 };
 
