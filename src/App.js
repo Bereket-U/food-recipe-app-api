@@ -5,6 +5,7 @@ import Alert from "./components/Alert/Alert";
 import Search from "./components/Search/Search";
 import Recipes from "./components/Recipes/Recipes";
 import Paper from "@mui/material/Paper";
+import NoRecipe from "./components/NoRecipe/NoRecipe";
 
 function App() {
   const [searchString, setSearchString] = useState("");
@@ -43,7 +44,12 @@ function App() {
   };
 
   return (
-    <div>
+    <Paper
+      sx={{
+        backgroundColor: "#0001",
+        minHeight: "100vh",
+      }}
+    >
       <Search
         alert={alert}
         searchRecipeS={searchRecipe}
@@ -51,8 +57,8 @@ function App() {
         searchStringS={searchString}
       />
       <Alert alert={alert} message={message} />
-      <Recipes recipes={recipes} />
-    </div>
+      {recipes == "" ? <NoRecipe /> : <Recipes recipes={recipes} />}
+    </Paper>
   );
 }
 export default App;

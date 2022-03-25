@@ -1,11 +1,9 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Alert from "../Alert/Alert";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -18,13 +16,12 @@ const Item = styled(Paper)(({ theme }) => ({
 const Search = (props) => {
   return (
     <Stack
-      spacing={3}
       justifyContent="center"
       alignItems="center"
       paddingBottom={7}
       paddingTop={7}
       sx={{
-        mb: 4,
+        mb: 3,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -36,21 +33,12 @@ const Search = (props) => {
           minWidth: "40%",
           padding: 4,
           backgroundColor: "#0001",
-          opacity: 10,
         }}
-        alignItems="center"
-        justifyContent="center"
         alignItems="center"
       >
         <h1>Recipe Finder</h1>
         <form onSubmit={props.searchRecipeS}>
-          <Stack
-            direction="row"
-            spacing={1}
-            alignItems="center"
-            justifyContent="center"
-            alignItems="center"
-          >
+          <Stack direction="row" spacing={1} justifyContent="center">
             <TextField
               required
               focused={true}
@@ -63,7 +51,6 @@ const Search = (props) => {
               value={props.searchStringS}
               size="small"
             />
-
             <Button color="success" variant="contained" type="submit">
               Search
             </Button>
