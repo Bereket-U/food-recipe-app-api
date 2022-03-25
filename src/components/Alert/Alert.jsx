@@ -1,6 +1,7 @@
 import React from "react";
 import { Alert as MyAlert } from "@mui/material";
 import Stack from "@mui/material/Stack";
+import { Collapse } from "@mui/material";
 
 // const Alert = ({ alert }) => {
 //   return (
@@ -17,6 +18,7 @@ import Stack from "@mui/material/Stack";
 // };
 
 const Alert = ({ alert, message }) => {
+  const [open, setOpen] = React.useState(true);
   if (alert !== "") {
     return (
       <Stack
@@ -28,7 +30,16 @@ const Alert = ({ alert, message }) => {
         alignItems="center"
         marginTop={0}
       >
-        <MyAlert severity="error">{alert}</MyAlert>
+        <Collapse in={open}>
+          <MyAlert
+            onClose={() => {
+              setOpen(false);
+            }}
+            severity="error"
+          >
+            {alert}
+          </MyAlert>
+        </Collapse>
       </Stack>
     );
   } else if (message !== "") {
@@ -41,7 +52,9 @@ const Alert = ({ alert, message }) => {
         justifyContent="center"
         alignItems="center"
       >
-        <MyAlert severity="success">{message}</MyAlert>
+        <MyAlert onClose={() => {}} severity="success">
+          {message}
+        </MyAlert>
       </Stack>
     );
   } else {
