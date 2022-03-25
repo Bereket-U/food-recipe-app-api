@@ -43,7 +43,12 @@ function App() {
   };
 
   return (
-    <div>
+    <Paper
+      sx={{
+        backgroundColor: "#0001",
+        minHeight: "100vh",
+      }}
+    >
       <Search
         alert={alert}
         searchRecipeS={searchRecipe}
@@ -52,7 +57,7 @@ function App() {
       />
       <Alert alert={alert} message={message} />
       <Recipes recipes={recipes} />
-    </div>
+    </Paper>
   );
 }
 export default App;
