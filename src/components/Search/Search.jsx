@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Alert from "../Alert/Alert";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -20,8 +21,8 @@ const Search = (props) => {
       spacing={3}
       justifyContent="center"
       alignItems="center"
-      paddingBottom={10}
-      paddingTop={10}
+      paddingBottom={7}
+      paddingTop={7}
       sx={{
         mb: 4,
         backgroundSize: "cover",
@@ -51,7 +52,8 @@ const Search = (props) => {
             alignItems="center"
           >
             <TextField
-              focused
+              required
+              focused={true}
               color="success"
               type="text"
               name="search"
@@ -62,7 +64,7 @@ const Search = (props) => {
               size="small"
             />
 
-            <Button color="success" focused variant="contained" type="submit">
+            <Button color="success" variant="contained" type="submit">
               Search
             </Button>
           </Stack>
