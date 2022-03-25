@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Alert from "../Alert/Alert";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -20,20 +21,28 @@ const Search = (props) => {
       spacing={3}
       justifyContent="center"
       alignItems="center"
-      paddingBottom={10}
-      paddingTop={10}
+      paddingBottom={7}
+      paddingTop={7}
+      sx={{
+        mb: 4,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundImage: `url(https://904590.smushcdn.com/2228630/wp-content/uploads/2021/12/5437-MMSB-ReThink_Web-Banners_Food-Waste_Tablet.jpg?lossy=1&strip=1&webp=1)`,
+      }}
     >
       <Stack
         sx={{
           minWidth: "40%",
           padding: 4,
           backgroundColor: "#0001",
+          opacity: 10,
         }}
         alignItems="center"
         justifyContent="center"
         alignItems="center"
       >
-        <h1>Food Recipe App</h1>
+        <h1>Recipe Finder</h1>
         <form onSubmit={props.searchRecipeS}>
           <Stack
             direction="row"
@@ -43,6 +52,9 @@ const Search = (props) => {
             alignItems="center"
           >
             <TextField
+              required
+              focused={true}
+              color="success"
               type="text"
               name="search"
               placeholder="Search Recipe..."
@@ -52,7 +64,7 @@ const Search = (props) => {
               size="small"
             />
 
-            <Button variant="outlined" type="submit">
+            <Button color="success" variant="contained" type="submit">
               Search
             </Button>
           </Stack>

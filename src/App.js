@@ -10,6 +10,7 @@ function App() {
   const [searchString, setSearchString] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [alert, setAlert] = useState("");
+  const [message, setMessage] = useState("");
 
   const APP_ID = "cbfb9ddd";
   const APP_KEY = "eaffffd5345dc91211b5f43a73e5975f";
@@ -20,6 +21,9 @@ function App() {
       const result = await axios.get(url);
       if (!result.data.more) {
         return setAlert(`No recipe found for "${searchString}"`);
+      }
+      if (result.data.more) {
+        setMessage(`Result found for "${searchString}"`);
       }
       setRecipes(result.data.hits);
       console.log(result);
@@ -39,16 +43,16 @@ function App() {
   };
 
   return (
-    <Paper>
+    <div>
       <Search
         alert={alert}
         searchRecipeS={searchRecipe}
         onChangeS={onChange}
         searchStringS={searchString}
       />
-      <Alert alert={alert} />
+      <Alert alert={alert} message={message} />
       <Recipes recipes={recipes} />
-    </Paper>
+    </div>
   );
 }
 export default App;
