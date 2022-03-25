@@ -62,7 +62,7 @@ const Search = (props) => {
               size="small"
             />
 
-            <Button color="success" focused variant="outlined" type="submit">
+            <Button color="success" focused variant="contained" type="submit">
               Search
             </Button>
           </Stack>
