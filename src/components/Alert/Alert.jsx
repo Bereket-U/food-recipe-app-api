@@ -16,7 +16,7 @@ import Stack from "@mui/material/Stack";
 //   );
 // };
 
-const Alert = ({ alert }) => {
+const Alert = ({ alert, message }) => {
   if (alert !== "") {
     return (
       <Stack
@@ -29,6 +29,19 @@ const Alert = ({ alert }) => {
         marginTop={0}
       >
         <MyAlert severity="error">{alert}</MyAlert>
+      </Stack>
+    );
+  } else if (message !== "") {
+    return (
+      <Stack
+        sx={{
+          minWidth: "40%",
+        }}
+        alignItems="center"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <MyAlert severity="success">{message}</MyAlert>
       </Stack>
     );
   } else {
