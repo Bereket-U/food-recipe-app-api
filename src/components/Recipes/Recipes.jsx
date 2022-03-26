@@ -10,7 +10,6 @@ const Recipes = ({ recipes }) => {
     <Container
       lg={{
         padding: "20",
-        backgroundColor: "#ff01",
       }}
     >
       <Grid container spacing={{ xs: 3 }} justifyContent="center">
