@@ -52,12 +52,12 @@ const Search = (props) => {
         paddingBottom={7}
         paddingTop={7}
         sx={{
-          mb: -2,
+          mb: -5,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundColor: "#FFFCEC",
-          backgroundImage: `url(https://904590.smushcdn.com/2228630/wp-content/uploads/2021/12/5437-MMSB-ReThink_Web-Banners_Food-Waste_Tablet.jpg?lossy=1&strip=1&webp=1)`,
+          backgroundImage: `url(https://i.imgur.com/uXtzi40.png)`,
         }}
       >
         <img width={100} src={SearchLogo}></img>
