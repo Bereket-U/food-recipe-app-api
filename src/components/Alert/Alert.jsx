@@ -10,7 +10,8 @@ const Alert = ({ alert, message }) => {
           minWidth: "40%",
         }}
         alignItems="center"
-        marginBottom={3}
+        marginBottom={2}
+        marginTop={2}
       >
         <MyAlert severity="error">{alert}</MyAlert>
       </Stack>
@@ -22,7 +23,8 @@ const Alert = ({ alert, message }) => {
           minWidth: "40%",
         }}
         alignItems="center"
-        marginBottom={3}
+        marginBottom={2}
+        marginTop={2}
       >
         <MyAlert severity="success">{message}</MyAlert>
       </Stack>
