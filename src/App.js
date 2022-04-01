@@ -5,11 +5,13 @@ import Alert from "./components/Alert/Alert";
 import Search from "./components/Search/Search";
 import Recipes from "./components/Recipes/Recipes";
 import Paper from "@mui/material/Paper";
+import NoRecipe from "./components/NoRecipe/NoRecipe";
 
 function App() {
   const [searchString, setSearchString] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [alert, setAlert] = useState("");
+  const [message, setMessage] = useState("");
 
   const APP_ID = "cbfb9ddd";
   const APP_KEY = "eaffffd5345dc91211b5f43a73e5975f";
@@ -20,6 +22,9 @@ function App() {
       const result = await axios.get(url);
       if (!result.data.more) {
         return setAlert(`No recipe found for "${searchString}"`);
+      }
+      if (result.data.more) {
+        setMessage(`Result found for "${searchString}"`);
       }
       setRecipes(result.data.hits);
       console.log(result);
@@ -39,15 +44,20 @@ function App() {
   };
 
   return (
-    <Paper>
+    <Paper
+      sx={{
+        backgroundColor: "#E9E5CF",
+        minHeight: "100vh",
+      }}
+    >
       <Search
         alert={alert}
         searchRecipeS={searchRecipe}
         onChangeS={onChange}
         searchStringS={searchString}
       />
-      <Alert alert={alert} />
-      <Recipes recipes={recipes} />
+      <Alert alert={alert} message={message} />
+      {recipes == "" ? <NoRecipe /> : <Recipes recipes={recipes} />}
     </Paper>
   );
 }
