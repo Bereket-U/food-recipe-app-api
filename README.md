@@ -6,7 +6,7 @@ A simple Recipe book were users can search and get food recipes built using Reac
 
 ## **Getting Started**
 
-Here is a [Link](https://Bereket-U.github.io/recipe-book) to Recipe Book!
+Here is a [Link](https://bereket-u.github.io/food-recipe-app-api/) to Recipe Book!
 
 ---
 
