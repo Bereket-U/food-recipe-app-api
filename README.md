@@ -1,3 +1,37 @@
+# Recipe Book <br> Using Recipe Search API
+
+A simple Recipe book were users can search and get food recipes built using React - Material UI - third party api
+
+---
+
+## **Getting Started**
+
+Here is a [Link]() to Recipe Book!
+
+---
+
+## Technologies Used
+
+- React
+- JavaScript
+- Material UI
+- CSS
+- HTML
+- Recipe Search API - edamam.com
+- React Hooks and Axios
+
+---
+
+## Screenshot
+
+- [Recipe Book](#recipe-book)
+
+### Recipe Book
+
+![](images/readme/recipe.png)
+
+### Registration Page
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
